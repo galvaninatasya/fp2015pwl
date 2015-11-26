@@ -9,6 +9,7 @@ session_start();
     	<?php
 		if(isset($_REQUEST['modul']))
 		{
+			
 			if ($_REQUEST['modul'] == 'login')
 			{
 				include "login.php";
@@ -19,7 +20,7 @@ session_start();
 			}
 			elseif ($_REQUEST['modul'] == 'loginpelanggan')
 			{
-				include "loginpelanggan.php";
+				include "login2.php";
 			}
 			else
 			{
