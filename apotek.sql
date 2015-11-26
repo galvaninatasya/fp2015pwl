@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2015 at 01:09 AM
+-- Generation Time: Nov 26, 2015 at 04:16 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.5.30
 
@@ -79,20 +79,36 @@ CREATE TABLE `pelanggan` (
   `username` varchar(50) NOT NULL,
   `nama_pelanggan` varchar(40) NOT NULL,
   `alamat` varchar(40) NOT NULL,
-  `no_handphone` int(12) NOT NULL,
-  `no_telp` int(15) NOT NULL,
-  `pwd_pelanggan` varchar(30) NOT NULL,
-  `level` varchar(11) CHARACTER SET utf8 NOT NULL
+  `no_handphone` bigint(15) NOT NULL,
+  `no_telp` int(15) DEFAULT NULL,
+  `pwd_pelanggan` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`username`, `nama_pelanggan`, `alamat`, `no_handphone`, `no_telp`, `pwd_pelanggan`, `level`) VALUES
-('', 'gege natasya', 'yogyakarta', 2147483647, 0, 'wagnrusyd', 'pelanggan'),
-('', 'dede arsyadi', 'karimun', 1234566672, 0, 'dedearsyadi', 'pelanggan'),
-('', 'karta buana syam', 'karimun', 988771234, 777324545, 'karta', 'pelanggan');
+INSERT INTO `pelanggan` (`username`, `nama_pelanggan`, `alamat`, `no_handphone`, `no_telp`, `pwd_pelanggan`) VALUES
+('abdan.s', 'Abdan Syakuron', 'Jalan Mangga', 87342434121, 3122432, 'abdans'),
+('galvaninatasya', 'Wirda Astari Galvani Natasya', 'Jalan Lubuk Semut', 85668110823, 777324545, 'wagnrusyd23'),
+('falah.a', 'Falah Agung Anggara', 'Jalan Manggis', 687864432, 23545, 'falah.a'),
+('muhzed.a', 'Muhammad Zaid Abdurrahman', 'Jalan Kemala', 128312098, 1409834, 'muhzed.a'),
+('alfatih', 'Muhammad Al Fatih', 'Jalan Mataram', 93242394, 24543546, 'alfatih'),
+('nanda.p', 'Nanda Okta Pratama', 'Jalan Warna', 23483928, 32432546, 'nanda.p'),
+('syahputra', 'Muhammad Syahputra', 'Jalan Mangga', 3432456678, 34534234, 'syahputra13'),
+('elsa.a', 'Elsa Dwi Agustine', 'Jalan Nusa Indah', 81242343, NULL, 'elsadwiagustine'),
+('surya.s', 'Surya Bonardo Sinaga', 'Jalan Qerweff', 29845783408, 84353456, 'surya.s'),
+('josi.a', 'Josi Aranda', 'Jalan Lfedfk', 39874925, NULL, 'josi.a'),
+('zainal.p', 'Zainal F. Pratama', 'Jalan Rambutan', 32467236453, NULL, 'zainal.p'),
+('rohmah.f', 'Rohmah Dewi Fitriati', 'Jalan Mancasan', 23435435, NULL, 'rohmah'),
+('tyar.p', 'Tyar Kurnia Putra', 'Jalan FGWREF', 325346, NULL, 'tyur'),
+('bapakekarta', 'Ir. Kartabuana, Syam', 'Jalan Lubuk Semut', 8000000000, 777324545, 'kartabap'),
+('dra.maemunah', 'Prof. Dr. Maemunah Rusyaid, M.M', 'Jalan Lubuk Semut', 81277033235, 777324545, 'rusyaidmae'),
+('bodat', 'Yuliana Mamerta Gultom', 'Jalan Sei Bati', 785747465653, NULL, 'bodat'),
+('abba', 'Ba''ba Rusyaid Daeng Kalla', 'Jalan Sukawati', 374234, NULL, 'rusyaidkalla'),
+('aminah', 'Mama Mina Haddade', 'Jalan Watampone', 9024978374, NULL, 'mamamina'),
+('daengtompo', 'Syamsyuddin Daeng Tompo', 'Jalan Baruga', 342332432, NULL, 'daengtompo'),
+('bola', 'Dra. Marsiah Daeng Bola', 'Jeneponto', 324324234, NULL, 'marsiahdgbola');
 
 -- --------------------------------------------------------
 
@@ -168,14 +184,14 @@ INSERT INTO `restock` (`id_restock`, `id_supplier`, `status_order`, `tgl_order`,
 
 CREATE TABLE `supplier` (
   `id_supplier` int(6) NOT NULL COMMENT '111xxx',
-  `nama_supplier` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `tanggal_daftar` date NOT NULL,
+  `nama_supplier` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `no_hp` varchar(12) NOT NULL,
   `alamat` text NOT NULL,
   `kota` varchar(50) NOT NULL,
   `provinsi` varchar(100) NOT NULL,
-  `no_hp` varchar(12) NOT NULL,
+  `tanggal_daftar` date NOT NULL,
   `level` varchar(10) NOT NULL DEFAULT 'supplier'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -183,8 +199,11 @@ CREATE TABLE `supplier` (
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `password`, `tanggal_daftar`, `email`, `alamat`, `kota`, `provinsi`, `no_hp`, `level`) VALUES
-(111001, 'Kimia Farma', 'kimiafarma', '2015-11-01', 'kimiafarma@gmail.com', 'Yogyakarta', 'Yogyakarta', 'Yogyakarta', '085766130', 'supplier');
+INSERT INTO `supplier` (`id_supplier`, `password`, `nama_supplier`, `email`, `no_hp`, `alamat`, `kota`, `provinsi`, `tanggal_daftar`, `level`) VALUES
+(111001, 'kimiafarma', 'Kimia Farma', 'kimiafarma@gmail.com', '085766130', 'Yogyakarta', 'Yogyakarta', 'Yogyakarta', '2015-11-01', 'supplier'),
+(111002, 'apaaja', 'Sukadewe', 'sukadewe@yow.com', '082731243423', 'Alamatnya ya ini', 'Entah', 'Entah', '2015-11-26', 'supplier'),
+(111003, 'asmaulhusna99', 'Ibnu Rusyd', 'ibnurusyd@gmail.com', '0777324545', 'Jalan Lubuk Semut Gang Siti Bintang No. 8', 'Batam', 'Kepulauan Riau', '2015-11-11', 'supplier'),
+(111004, 'natasya', 'Natasya', 'natasyarusyd', '0121434324', 'Jalan Teluk Air, Kajang', 'Kajang', 'Kajang, Malay', '2015-11-01', 'supplier');
 
 --
 -- Indexes for dumped tables
@@ -195,6 +214,12 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `password`, `tanggal_daf
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `produk`
@@ -232,7 +257,7 @@ ALTER TABLE `restock`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(6) NOT NULL AUTO_INCREMENT COMMENT '111xxx', AUTO_INCREMENT=111002;
+  MODIFY `id_supplier` int(6) NOT NULL AUTO_INCREMENT COMMENT '111xxx', AUTO_INCREMENT=111005;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -60,14 +60,6 @@
 			mysql_close($this->db) or die ("Database Access Error...".mysql_error());
 			$this->db = false;
 		}
-
-		/*
-		*   Parameter:
-		*   $sql - (string ) Select query
-		*
-		*        - if data exist this function return data in associate array format
-        *        - else reutrn empty array
-		*/
 		
 		function getRows($sql)
 		{
