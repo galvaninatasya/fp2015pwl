@@ -5,15 +5,15 @@
 
  <table id="list">
                     	<tr>
-                        	<th>No</th>
-							<th>Id</th>
-                            <th>Nama Produk</th>
-                        	<th>Harga (Rp.)</th>
-                            <th>Gambar</th>
-                            <th>Jumlah Produk</th>
-							<th>Komposisi</th>
-							<th>Keterangan - Indikasi<th>
-                            <th>Aksi</th>
+                        	<th>NO</th>
+							<th>ID</th>
+                            <th>PRODUCT</th>
+                        	<th>PRICE (IDR)</th>
+                            <th>IMAGE</th>
+                            <th>STOCK</th>
+							<th>COMPOSITION</th>
+							<th>INDICATION<th>
+                            <th>ACTION</th>
 							
                         </tr> 
 
@@ -53,7 +53,7 @@ if ($find_db) {
 										<td>$tampilkan[id_produk]</td>
 										<td>$tampilkan[nama_produk]</td>
 										<td>$tampilkan[harga]</td>
-										<td><img src='assets/image/$tampilkan[gambar]' width='100'/></td>
+										<td><img src='assets/image/productassets/$tampilkan[gambar]' width='100'/></td>
 										<td>$tampilkan[jlh_produk]</td>
 										<td>$tampilkan[komposisi]</td>
 										<td>$tampilkan[keterangan]</td>
