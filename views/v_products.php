@@ -1,34 +1,23 @@
-<p> Tabel berikut merupakan list supplier yang telah bekerjasama dengan Galvicenna Pharmacy </p>                           
+<p> Tabel berikut merupakan list produk Galvicenna Pharmacy </p>                           
 
 
 
 
- <table width="1024" id="list">
+ <table id="list">
                     	<tr>
                         	<th>No</th>
-                        	<th>Id Produk</th>
+							<th>Id</th>
                             <th>Nama Produk</th>
-                        	<th>Harga</th>
+                        	<th>Harga (Rp.)</th>
                             <th>Gambar</th>
                             <th>Jumlah Produk</th>
-                        	<th>Tanggal</th>
+							<th>Komposisi</th>
+							<th>Keterangan - Indikasi<th>
                             <th>Aksi</th>
-                        </tr>
-								
-<?php
-							$batas = 5;
-									$halaman = $_GET['halaman'];
-									if (empty ($halaman))
-									{
-										$posisi = 0;
-										$halaman = 1;
-									}
-									else
-									{
-										$posisi = ($halaman - 1 ) * $batas;
-									}
-									$no = $posisi+1;
 							
+                        </tr> 
+
+<?php
 							
 $user_name = "root";
 $password = "";
@@ -40,43 +29,48 @@ $connect_db=mysql_connect($host_name, $user_name, $password);
 $find_db=mysql_select_db($database);
  
 if ($find_db) {
+									$batas = 5;
+									$halaman = (isset($_REQUEST['halaman'])&& $_REQUEST['halaman'] !=NULL)?$_REQUEST['halaman']:'';;
+									if (empty ($halaman))
+									{
+										$posisi = 0;
+										$halaman = 1;
+									}
+									else
+									{
+										$posisi = ($halaman - 1 ) * $batas;
+									}
 									
-									$query = "select * from produk";
+								
+									$no=$posisi+1;
+									$query = "select * from produk order by id_produk limit $posisi,$batas";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
 									{
-								       if ($no%2 == 1)
-								{
-									$baris = "baris1";
-								}
-								else 
-								{
-									$baris = "baris2";
-								}
-								echo"<tr class='$baris'>
+								   
+								echo"<tr>
 										<td>$no</td>
-										<td>$baca[id_produk]</td>
-										<td>$baca[nama_produk]</td>
-										<td>$baca[harga]</td>
-										<td><img src='romaninda-image/foto_produk/resize_small_$baca[gambar]' width='100'/></td>
-										<td>$baca[jlh_produk]</td>
-										<td>$baca[tgl]</td>
-										<td><a href='index.php?modul=keranjang&action=add&id=$baca[id_produk]'>Beli</a></td>
-									</tr>
-								";
-								$no++; 
+										<td>$tampilkan[id_produk]</td>
+										<td>$tampilkan[nama_produk]</td>
+										<td>$tampilkan[harga]</td>
+										<td><img src='assets/image/$tampilkan[gambar]' width='100'/></td>
+										<td>$tampilkan[jlh_produk]</td>
+										<td>$tampilkan[komposisi]</td>
+										<td>$tampilkan[keterangan]</td>
+										<td><a href='?modul=edit_produk&id=$tampilkan[id_produk]'>Edit</a> |
+													<a href='proses.php?modul=hapus_produk&id=$tampilkan[id_produk]'>Hapus<a>
+												</td>
+									</tr>";
+									$no++;
 									}
-								$tampil2 = mysql_fetch_array($hasil);
+								$tampil2 = mysql_query("SELECT * FROM produk");
 								$jmldata = mysql_num_rows($tampil2);
 								$jmlhal  = ceil($jmldata/$batas);
-					
-                    </table>
-                    <?php
-						echo "<div class=paging>";
+								echo "<div class=paging>";
 									if ($halaman > 1)
 									{
 										$prev = $halaman - 1;
-										echo"<span class=prevnext><a href=$_SERVER[PHP_SELF]?modul=list_produk&halaman=$prev>« Prev</a></span>";
+										echo"<span class=prevnext><a href=$_SERVER[PHP_SELF]?modul=produk&halaman=$prev>« Prev</a></span>";
 									}
 									else
 									{ 
@@ -85,7 +79,7 @@ if ($find_db) {
 									
 									for($i=1;$i<=$jmlhal;$i++)
 									if ($i != $halaman){
-										echo " <a href=$_SERVER[PHP_SELF]?modul=list_produk&halaman=$i>$i</a> ";
+										echo " <a href=$_SERVER[PHP_SELF]?modul=produk&halaman=$i>$i</a> ";
 									}
 									else{
 										echo " <span class=current>$i</span> ";
@@ -93,16 +87,18 @@ if ($find_db) {
 									
 									if($halaman < $jmlhal){
 										$next=$halaman+1;
-										echo "<span class=prevnext><a href=$_SERVER[PHP_SELF]?modul=list_produk&halaman=$next>Next »</a></span>";
+										echo "<span class=prevnext><a href=$_SERVER[PHP_SELF]?modul=produk&halaman=$next>Next »</a></span>";
 									}
 									else{ 
 										echo "<span class=disabled>Next »</span>";
 									}
 								echo "</div>";
-									}
+								
+					
 mysql_close($connect_db);
  
-}else {
+}
+else {
  
   echo "Database Tidak Ada";
  
@@ -113,4 +109,3 @@ mysql_close($connect_db);
 ?>
 								
                             </table>
- 

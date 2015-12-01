@@ -2,6 +2,6 @@
 
 require_once('lib/view.php');
 
-$data['title'] = "Payment History";
-$data['page'] = "v_history.php";
+$data['title'] = "Restock";
+$data['page'] = "v_restock.php";
 require_once View::getView('dashboard.php', $data);
