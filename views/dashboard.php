@@ -62,7 +62,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.php"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="home.php"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Admin</h5>
               	  
 				  <li class="mt">
@@ -81,18 +81,37 @@
                           <i class="fa fa-users"></i>
                           <span>Suppliers</span>
                       </a>
+						<ul>
+							<li><a href="suppliers.php"><i class="fa fa-users"></i>
+							Daftar Suppliers</a></li>
+							<li><a href="tambahsuppliers.php"><i class="fa fa-user"></i>
+							Tambah Supplier</a></li>
+						</ul>
                   </li>
 				  <li class="mt">
                       <a href="consumers.php">
 					      <i class="fa fa-users"></i>
                           <span>Consumers</span>
                       </a>
+					  <ul>
+							<li><a href="consumers.php"><i class="fa fa-users"></i>
+							Daftar Consumers</a></li>
+							<li><a href="tambahconsumer.php"><i class="fa fa-user"></i>
+							Tambah Consumer</a></li>
+						</ul>
                   </li>
 				  <li class="mt">
                       <a href="product.php">
                           <i class="fa fa-list"></i>
                           <span>Product</span>
                       </a>
+					  <ul>
+							<li><a href="product.php"><i class="fa fa-list"></i>
+							Daftar Products</a></li>
+							<li><a href="tambahproduk.php">
+							Tambah Supplier</a></li>
+						</ul>
+					</li>
 				  <li class="mt">
                       <a href="restock.php">
                           <i class="fa fa-list"></i>
