@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2015 at 04:16 PM
+-- Generation Time: Dec 01, 2015 at 04:24 PM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.5.30
 
@@ -49,9 +49,9 @@ INSERT INTO `admin` (`username`, `password`, `nama_lengkap`, `email`, `level`) V
 --
 
 CREATE TABLE `detail_restock` (
+  `no_faktur_restock` varchar(11) NOT NULL COMMENT 'FR-0xxx',
   `id_supplier` varchar(50) NOT NULL COMMENT '111xxx',
   `id_produk` varchar(50) NOT NULL,
-  `no_faktur_restock` varchar(11) NOT NULL COMMENT 'FR-0xxx',
   `tgl_faktur` date NOT NULL,
   `jumlah_restock` int(11) NOT NULL,
   `harga_satuan` int(11) NOT NULL,
@@ -65,9 +65,9 @@ CREATE TABLE `detail_restock` (
 -- Dumping data for table `detail_restock`
 --
 
-INSERT INTO `detail_restock` (`id_supplier`, `id_produk`, `no_faktur_restock`, `tgl_faktur`, `jumlah_restock`, `harga_satuan`, `jasa_kirim`, `bank`, `rekening`, `biaya`) VALUES
-('111001', '1', '6', '2015-11-03', 50, 11500, 'JNE', 'BNI', 76564334, 575000),
-('111001', '1', '222000001', '2015-11-03', 50, 11500, 'JNE', 'BNI', 21343455, 575000);
+INSERT INTO `detail_restock` (`no_faktur_restock`, `id_supplier`, `id_produk`, `tgl_faktur`, `jumlah_restock`, `harga_satuan`, `jasa_kirim`, `bank`, `rekening`, `biaya`) VALUES
+('6', '111001', '1', '2015-11-03', 50, 11500, 'JNE', 'BNI', 76564334, 575000),
+('222000001', '111001', '1', '2015-11-03', 50, 11500, 'JNE', 'BNI', 21343455, 575000);
 
 -- --------------------------------------------------------
 
@@ -132,12 +132,14 @@ CREATE TABLE `pembelian` (
 --
 
 CREATE TABLE `produk` (
-  `id_produk` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL COMMENT '100xxx',
   `nama_produk` varchar(100) NOT NULL,
   `harga` int(100) NOT NULL,
   `gambar` varchar(100) NOT NULL,
   `jlh_produk` int(100) NOT NULL,
   `tgl` date NOT NULL,
+  `komposisi` mediumtext NOT NULL,
+  `keterangan` text NOT NULL,
   `id_supplier` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -145,10 +147,17 @@ CREATE TABLE `produk` (
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `gambar`, `jlh_produk`, `tgl`, `id_supplier`) VALUES
-(5, 'Paramex', 5000, '1334763616.jpg', 50, '2012-06-13', ''),
-(6, 'Panadol', 8000, 'no-photo.jpg', 50, '2012-06-13', ''),
-(1, 'Minyak Tawon', 12000, '', 50, '2015-11-11', '111001');
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `harga`, `gambar`, `jlh_produk`, `tgl`, `komposisi`, `keterangan`, `id_supplier`) VALUES
+(10001, 'Minyak Gosok Cap Tawon DD (30ml)', 17200, 'minyak_tawon.png', 50, '2015-11-11', 'Mengandung oleum cocos 60ml, oleum cajuputi 5ml, oleum citronellae 5ml, oleum terebinthinae 5ml, piperis folium 3g, zingiberis rhizoma 2g, curcumae rhizoma 2g, allium sativum 1.5g.', 'Membantu meredakan nyeri sendi, sakit gigi, bisul, sakit kepala, kudis, panu, gatal-gatal akibat digigit serangga, muntah, sakit perut dan batuk. \r\n', '111001'),
+(10002, 'Betadine Antiseptic Solution (30ml)', 24500, 'betadine_antiseptic.jpg', 50, '2015-12-01', 'Mengandung Povine Iodine 10%', 'Pertolongan pertama pada luka dan mencegah infeksi', '111001'),
+(10003, 'Betadine Antiseptic Solution (60ml)', 42900, 'betadine_antiseptic.jpg', 50, '2015-12-01', 'Mengandung Povine Iodine 10%', 'Pertolongan pertama pada luka dan mencegah infeksi', '111001'),
+(10004, 'Betadine Antiseptic Solution (15ml)', 13500, 'betadine_antiseptic.jpg', 50, '2015-12-01', 'Mengandung Povine Iodine 10%', 'Pertolongan pertama pada luka dan mencegah infeksi', '111001'),
+(10005, 'Betadine Antiseptic Solution (5ml)', 4500, 'betadine_antiseptic.jpg', 20, '2015-12-01', 'Mengandung Povine Iodine 10%', 'Pertolongan pertama pada luka dan mencegah infeksi', '111001'),
+(10006, 'Betadine Stick Sariawan (10 Sachets)', 14000, 'betadine_stick_sariawan.jpg', 20, '2015-12-01', 'Mengandung Povine Iodine 10%', 'Membunuh kuman penyebab infeksi pada luka dan sariawan. \r\n\r\nKemasan box isi 10 sachet x 2 stick. ', '111001'),
+(10007, 'Hufagripp Syrup Obat Batuk Pilek Anak (60ml)', 12000, 'hufagripp_syrup_obat_batuk_pilek_anak_60ml.jpg', 15, '2015-12-01', 'Tiap sendok takar (5ml) mengandung : Dextromethorphan HBr 7.5mg, Pseudoephedrine HCl 15mg, Chlorpheniramine Maleat 0.5mg.', 'Untuk meringankan batuk tidak berdahak dan pilek pada anak', '111003'),
+(10008, 'Albothyl Botol (10ml)', 46000, 'albothyl.jpg', 15, '2015-12-14', 'Mengandung policresulen (produk kondensasi asam metakresolsulfonat dan metanal). ', 'Membantu pengobatan lokal pada peradangan leher rahim dan vagina bersamaan dengan keputihan, kolpitis (radang liang vagina) dan servitis (radang leher rahim), erosi servikal, trikomoniasis dan kandiliasis. Membantu menghentikan pendarahan setelah biopsi & pembuangan polip servikal. Kutil pada alat kelamin. ', '111004'),
+(10009, 'Albothyl Botol (5ml)', 27900, 'albothyl.jpg', 10, '2015-12-08', 'Mengandung policresulen (produk kondensasi asam metakresolsulfonat dan metanal). ', 'Membantu pengobatan lokal pada peradangan leher rahim dan vagina bersamaan dengan keputihan, kolpitis (radang liang vagina) dan servitis (radang leher rahim), erosi servikal, trikomoniasis dan kandiliasis. Membantu menghentikan pendarahan setelah biopsi & pembuangan polip servikal. Kutil pada alat kelamin. ', ''),
+(10010, 'Mylanta Tablet (10pcs)', 6000, 'mylanta_tablet.jpg', 13, '2015-12-09', 'Per tablet mengandung Mg(OH)2 200mg, Al(OH)3 200mg, simetikon 20mg.', 'Membantu meredakan rasa panas pada ulu hati, rasa tidak enak pada perut, hiperasiditas yang berhubungan dengan diagnosis ulkus peptikum, gastritis (maag), mengatasi perut kembung.', '111003');
 
 -- --------------------------------------------------------
 
@@ -202,7 +211,7 @@ CREATE TABLE `supplier` (
 INSERT INTO `supplier` (`id_supplier`, `password`, `nama_supplier`, `email`, `no_hp`, `alamat`, `kota`, `provinsi`, `tanggal_daftar`, `level`) VALUES
 (111001, 'kimiafarma', 'Kimia Farma', 'kimiafarma@gmail.com', '085766130', 'Yogyakarta', 'Yogyakarta', 'Yogyakarta', '2015-11-01', 'supplier'),
 (111002, 'apaaja', 'Sukadewe', 'sukadewe@yow.com', '082731243423', 'Alamatnya ya ini', 'Entah', 'Entah', '2015-11-26', 'supplier'),
-(111003, 'asmaulhusna99', 'Ibnu Rusyd', 'ibnurusyd@gmail.com', '0777324545', 'Jalan Lubuk Semut Gang Siti Bintang No. 8', 'Batam', 'Kepulauan Riau', '2015-11-11', 'supplier'),
+(111003, 'asmaulhusna99', 'Ibnu Rusyd', 'ibnurusyd@gmail.com', '0777324545', 'Jalan Lubuk Semut', 'Batam', 'Kepulauan Riau', '2015-11-11', 'supplier'),
 (111004, 'natasya', 'Natasya', 'natasyarusyd', '0121434324', 'Jalan Teluk Air, Kajang', 'Kajang', 'Kajang, Malay', '2015-11-01', 'supplier');
 
 --
@@ -231,7 +240,8 @@ ALTER TABLE `produk`
 -- Indexes for table `restock`
 --
 ALTER TABLE `restock`
-  ADD PRIMARY KEY (`id_restock`);
+  ADD PRIMARY KEY (`id_restock`),
+  ADD UNIQUE KEY `id_restock` (`id_restock`);
 
 --
 -- Indexes for table `supplier`
@@ -247,7 +257,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT COMMENT '100xxx', AUTO_INCREMENT=10011;
 --
 -- AUTO_INCREMENT for table `restock`
 --
