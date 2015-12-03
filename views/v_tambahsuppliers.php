@@ -1,11 +1,17 @@
 
-           	<form method="post">
-                <table>                                	
-                  <tr>
+<?php
+include 'lib/fungsi.php';
+require_once 'lib/DBClass.php';
+
+
+?>
+           	<form>
+                <table> 
+				  
+				  <tr>
                  	<td>Nama Supplier</td>
                   	<td><input type="text" name="nama" style="width:200px;"/></td>
                   </tr>
-				  
                   <tr>
                    	<td>Password</td>
                    	<td><input type="text" name="pass" style="width:200px;" /></td>

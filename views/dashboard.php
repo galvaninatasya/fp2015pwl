@@ -1,3 +1,6 @@
+<?php require_once "lib/DBClass.php" ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,46 +80,41 @@
                       </a>
                   </li>
 				  <li class="mt">
-                      <a href="suppliers.php">
+                      <a href="#">
                           <i class="fa fa-users"></i>
                           <span>Suppliers</span>
                       </a>
 						<ul>
-							<li><a href="suppliers.php"><i class="fa fa-users"></i>
+							<li><a href="suppliers.php">
 							Daftar Suppliers</a></li>
-							<li><a href="tambahsuppliers.php"><i class="fa fa-user"></i>
+							<li><a href="tambahsuppliers.php">
 							Tambah Supplier</a></li>
 						</ul>
                   </li>
 				  <li class="mt">
-                      <a href="consumers.php">
+                      <a href="#">
 					      <i class="fa fa-users"></i>
                           <span>Consumers</span>
                       </a>
 					  <ul>
-							<li><a href="consumers.php"><i class="fa fa-users"></i>
+							<li><a href="consumers.php">
 							Daftar Consumers</a></li>
-							<li><a href="tambahconsumer.php"><i class="fa fa-user"></i>
+							<li><a href="tambahconsumer.php">
 							Tambah Consumer</a></li>
 						</ul>
                   </li>
 				  <li class="mt">
-                      <a href="product.php">
+                      <a href="#">
                           <i class="fa fa-list"></i>
                           <span>Product</span>
                       </a>
 					  <ul>
-							<li><a href="product.php"><i class="fa fa-list"></i>
+							<li><a href="product.php">
 							Daftar Products</a></li>
 							<li><a href="tambahproduk.php">
 							Tambah Supplier</a></li>
 						</ul>
 					</li>
-				  <li class="mt">
-                      <a href="restock.php">
-                          <i class="fa fa-list"></i>
-                          <span>Restock</span>
-                      </a>
                   </li> 
 				  <li class="mt">
                       <a href="transaction.php">

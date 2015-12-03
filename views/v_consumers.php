@@ -1,7 +1,7 @@
 <p> Tabel berikut merupakan daftar pelanggan di Galvicenna Pharmacy </p>                           
 
 
-						   <table id="list">
+						   <table class='table table-striped'>
                             	<tr>
                                 	<th>NO</th>
 									<th>USERNAME</th>
@@ -39,7 +39,7 @@ if ($find_db) {
 									
 								
 									$no=$posisi+1;
-									$query = "select * from pelanggan order by username limit $posisi,$batas";
+									$query = "select * from customers order by username limit $posisi,$batas";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
 									{
@@ -55,7 +55,7 @@ if ($find_db) {
                 	                        </tr>";
 											$no++;
 											}
-								$tampil2 = mysql_query("SELECT * FROM pelanggan");
+								$tampil2 = mysql_query("SELECT * FROM customers");
 								$jmldata = mysql_num_rows($tampil2);
 								$jmlhal  = ceil($jmldata/$batas);
 								echo "<div class=paging>";

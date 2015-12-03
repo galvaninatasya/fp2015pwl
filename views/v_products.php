@@ -43,7 +43,7 @@ if ($find_db) {
 									
 								
 									$no=$posisi+1;
-									$query = "select * from produk order by id_produk limit $posisi,$batas";
+									$query = "select * from products order by id_produk limit $posisi,$batas";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
 									{
@@ -63,7 +63,7 @@ if ($find_db) {
 									</tr>";
 									$no++;
 									}
-								$tampil2 = mysql_query("SELECT * FROM produk");
+								$tampil2 = mysql_query("SELECT * FROM products");
 								$jmldata = mysql_num_rows($tampil2);
 								$jmlhal  = ceil($jmldata/$batas);
 								echo "<div class=paging>";

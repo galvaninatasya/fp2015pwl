@@ -3,7 +3,7 @@
 
 
 
-						   <table id="list">
+						   <table class='table table-striped'>
                             	<tr>
                                 	<th>NO</th>
 									<th>ID SUPPLIER</th>
@@ -30,7 +30,7 @@ $find_db=mysql_select_db($database);
  
 if ($find_db) {
 									$no=1;
-									$query = "select * from supplier order by id_supplier";
+									$query = "select * from suppliers order by id_supplier";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
 									{
@@ -44,8 +44,8 @@ if ($find_db) {
 												<td>$tampilkan[kota]</td>
 												<td>$tampilkan[provinsi]</td>
 												<td>$tampilkan[tanggal_daftar]
-												<td><a href='?modul=edit_supplier&id=$tampilkan[id_supplier]'>Edit</a> |
-													<a href='proses.php?modul=hapus_supplier&id=$tampilkan[id_supplier]'>Hapus<a>
+												<td><a href='edit_nat.php?id<=$tampilkan[id_supplier]'>Edit</a> |
+													<a href='del_nat.php?id=<?php echo $tampilkan[id_supplier]'>Del<a>
 												</td>
                 	                        </tr>";
 											$no++;
