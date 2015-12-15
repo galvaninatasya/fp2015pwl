@@ -121,6 +121,10 @@
                           <i class="fa fa-money"></i>
                           <span>Transaction</span>
                       </a>
+					  <ul>
+							<li><a href="tambahsupplier.php">
+							Daftar Products</a></li>
+						</ul>
                   </li>                  
                   </li>                
 				 </ul>
