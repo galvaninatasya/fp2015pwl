@@ -8,6 +8,7 @@ $suppliers = new Suppliers();
 $data['title'] = "Form Tambah Supplier Baru";
 $data['page'] = "tambah/v_tambahsuppliers.php";
 
+
 if(!empty($_POST)){
 
 	$id_sup    = $_POST['id_supp'];
@@ -22,6 +23,8 @@ if(!empty($_POST)){
 
 	$suppliers->createSuppliers($id_sup,$pass,$nama_sup,$email,$no_hp,$alamat,$kota,$prov,$tgl);
 	$success = "Data Berhasil di Tambahkan";
+	
+	header('Location:suppliers.php');
 
 }
 

@@ -24,7 +24,7 @@ if(!empty($success)):?>
 				   
 					<tr>
 						<td>Id Supplier</td>
-						<td><input type="text" name="id_supp" value="<?php echo sprintf("111"."%04s", $nourut);?>" readonly ="readonly" style="width:200px;"/></td>
+						<td><input type="text" name="id_supp" value="<?php echo sprintf("111"."%03s", $nourut);?>" readonly ="readonly" style="width:200px;"/></td>
 					</tr>
 					<tr>
 						<td>Nama Supplier</td>

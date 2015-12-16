@@ -3,7 +3,7 @@
 
 
 
- <table id="list">
+ <table class='table table-striped'>
                     	<tr>
                         	<th>NO</th>
 							<th>ID</th>
@@ -14,7 +14,6 @@
 							<th>COMPOSITION</th>
 							<th>INDICATION<th>
                             <th>ACTION</th>
-							
                         </tr> 
 
 <?php
@@ -57,9 +56,11 @@ if ($find_db) {
 										<td>$tampilkan[jlh_produk]</td>
 										<td>$tampilkan[komposisi]</td>
 										<td>$tampilkan[keterangan]</td>
-										<td><a href='?modul=edit_produk&id=$tampilkan[id_produk]'>Edit</a> |
-													<a href='proses.php?modul=hapus_produk&id=$tampilkan[id_produk]'>Hapus<a>
-												</td>
+										<td><a href='edit_product.php?id_produk=$id'>
+													<span class='label label-success'>Edit</a>
+											<a href='del_product.php?id_produk=$id'>
+													<span class='label label-danger'>Del</span><a>
+										</td>
 									</tr>";
 									$no++;
 									}

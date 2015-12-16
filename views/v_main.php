@@ -1,16 +1,12 @@
 <marquee><p> Hi Mimin, Welcome to Galvicenna Pharmacy </p></marquee>
 
 <br>Silahkan lakukan proses CRUD data Anda
-<br>Semangkaaaaa!!!!!!!!! 
-
-
-
 <p> Tabel berikut merupakan list admin Galvicenna Pharmacy </p>                           
 
 
 
 
-						   <table id="list">
+						   <table class="table table-striped">
                             	<tr>
                                 	<th>NO</th>
 									<th>USERNAME</th>

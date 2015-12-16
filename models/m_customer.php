@@ -2,48 +2,28 @@
 
 require_once('lib/DBClass.php');
 
-class Siswa{
+class Customers{
 
 	private $db;
 
-	public function Suppliers(){
+	public function Customers(){
 		$this->db = new DBClass();
 	}
 
-	public function readAllSuppliers(){
-		$query = "Select * from suppliers order by id_supplier";
+	public function readAllCustomers(){
+		$query = "Select * from customers order by username";
 		return $this->db->getRows($query);	
 	}
 
-	public function readSuppliers($id){
-		$query = "Select * from suppliers where id_supplier=".$id;
+	public function readCustomers($id){
+		$query = "Select * from customers where nama_pelanggan=".$id;
 		return $this->db->getRows($query);		
 	}
 
-	public function createSuppliers($id_supplier, $password, $nama_supplier, $email, $no_hp, $alamat, $kota, $provinsi, $tanggal_daftar){
-		$query = "Insert into suppliers (id_supplier, password, nama_supplier, email, no_hp, alamat, kota, provinsi, tanggal_daftar)
-			values('$id_supplier', '$password', '$nama_supplier', '$email', '$no_hp', '$alamat', '$kota', '$provinsi', '$tanggal_daftar')";
+	public function createCustomers($uname, $nama_pelanggan, $no_hp, $alamat, $no_telp, $pass){
+		$query = "Insert into Customers (username, nama_pelanggan, alamat, no_handphone, no_telp, pwd_pelanggan)
+			values('$uname', '$nama_pelanggan','$alamat',  '$no_hp', '$no_telp', '$pass')";
 		$this->db->putRows($query);	
 	}
-
-	public function updateSuppliers($id, $data){
-		$name = $data['input_name'];
-		$email = $data['input_email'];
-		$nohp = $data['input_nohp'];
-		$address = $data['input_address'];
-		$city = $data['input_city'];
-		$prov= $data['input_prov];
-		
-
-		$query = "update suppliers set nama_supplier='$name', email='$email', no_hp='$nohp', alamat='$address', kota='$city', provinsi='$prov'";
-		$query.= " where id_supplier=$id";
-		$this->db->putRows($query);		
-	}
-
-	public function deleteSuppliers($id){
-		$sql = "Delete from suppliers Where id_supplier=$id";
-		$this->db->putRows($sql);		
-	}
-
 
 }
