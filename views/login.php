@@ -34,12 +34,12 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="index.php" method="post">
+		      <form class="form-login" action="login_exec.php" method="post">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="UserID" autofocus>
+		            <input type="text" name ="username" class="form-control" placeholder="Username" autofocus >
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password">
+		            <input type="password" name = "password" class="form-control" placeholder="Password">
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
@@ -89,7 +89,23 @@
     <script>
         $.backstretch("assets/img/login-bg.jpg", {speed: 500});
     </script>
-
+<?php
+//Start session
+	session_start();	
+	//Unset the variables stored in session
+	
+	unset($_SESSION['SESS_FIRST_NAME']);
+	unset($_SESSION['SESS_LAST_NAME']);
+	
+			if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+			echo '<ul class="err">';
+			foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+				echo '<li>',$msg,'</li>'; 
+				}
+			echo '</ul>';
+			unset($_SESSION['ERRMSG_ARR']);
+			}
+		?>
 
   </body>
 </html>

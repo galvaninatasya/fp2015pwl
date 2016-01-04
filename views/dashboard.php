@@ -68,11 +68,7 @@
               	  <p class="centered"><a href="home.php"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Admin</h5>
               	  
-				  <li class="mt">
-					  <a href="home.php">
-                          <i class="fa fa-home"></i>
-                          <span>Home</span>
-                      </a>
+				  
                   <li class="mt">
                       <a href="dashboard.php">
                           <i class="fa fa-dashboard"></i>
@@ -86,45 +82,50 @@
                       </a>
 						<ul>
 							<li><a href="suppliers.php">
-							Daftar Suppliers</a></li>
+							Supplier Lists</a></li>
 							<li><a href="tambahsuppliers.php">
-							Tambah Supplier</a></li>
+							Add Supplier</a></li>
 						</ul>
                   </li>
 				  <li class="mt">
                       <a href="#">
 					      <i class="fa fa-users"></i>
-                          <span>Consumers</span>
+                          <span>Customers</span>
                       </a>
 					  <ul>
 							<li><a href="consumers.php">
-							Daftar Consumers</a></li>
+							Customer Lists</a></li>
 							<li><a href="tambahconsumer.php">
-							Tambah Consumer</a></li>
+							Add Customer</a></li>
 						</ul>
                   </li>
 				  <li class="mt">
                       <a href="#">
                           <i class="fa fa-list"></i>
-                          <span>Product</span>
+                          <span>Products</span>
                       </a>
 					  <ul>
 							<li><a href="product.php">
-							Daftar Products</a></li>
+							Product Lists</a></li>
 							<li><a href="tambahproduk.php">
-							Tambah Supplier</a></li>
+							Add Product</a></li>
 						</ul>
 					</li>
                   </li> 
 				  <li class="mt">
                       <a href="transaction.php">
                           <i class="fa fa-money"></i>
-                          <span>Transaction</span>
+                          <span>Transactions</span>
                       </a>
 					  <ul>
-							<li><a href="tambahsupplier.php">
-							Daftar Products</a></li>
+							<li><a href="transaction.php">
+							Transaction</a></li>
 						</ul>
+					  <ul>
+							<li><a href="printout.php">
+							Print Out Report</a></li>
+						</ul>
+						
                   </li>                  
                   </li>                
 				 </ul>

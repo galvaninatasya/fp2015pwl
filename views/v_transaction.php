@@ -1,26 +1,15 @@
-<?php
-	require_once 'lib/DBClass.php';
-	$db = new DBClass();
-?>
-
-<p>Detail of Transactions</p>
-
-<p>Student Payment</p>
-<p> Tabel berikut merupakan list supplier yang telah bekerjasama dengan Galvicenna Pharmacy </p>                           
-
-
-
 
 						   <table class='table table-striped'>
                             	<tr>
-                                	<th>NO</th>
+                                
 									<th>NO FAKTUR</th>
 									<th>NAMA PELANGGAN</th>
                                     <th>ORDER DATE</th>
-									<th>PRODUK</th>
-                                    <th>HARGA SATUAN</th>
-									<th>TOTAL</th>
-									<th>ACTION</th>
+									<th>PRODUCT</th>
+									<th>JUMLAH BELI</th>
+                                    <th>PRICE (IDR)</th>
+									
+									
 								</tr>
 								
 <?php
@@ -48,25 +37,24 @@ if ($find_db) {
 									}
 									
 								
-									$no=$posisi+1;
-									$query = "select * from transactions t join customers c on t.username = c.username order by no_faktur limit $posisi,$batas";
+									
+									$query = "select * from transactions t join customers c on t.username = c.username join products p on t.id_produk=p.id_produk order by no_faktur limit $posisi,$batas";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
-									{
+									{$id = $tampilkan['no_faktur'];
 								        echo"<tr>
-												<td>$no</td>
+												
 												<td>$tampilkan[no_faktur]</td>
 												<td>$tampilkan[nama_pelanggan]</td>
 												<td>$tampilkan[tgl]</td>
-												<td>$tampilkan[id_produk]</td>
-												<td>$tampilkan[harga_satuan]</td>
-												<td>$tampilkan[total]</td>
-												<td><a href='edit_tran.php?no=<?php echo $tampilkan[no_faktur]?>'>Edit</a> |
-													<a href='del_tran.php?no=<?php echo $tampilkan[no_faktur]?>'>Del<a>
-												</td>
+												<td>$tampilkan[nama_produk]</td>
+												<td>$tampilkan[jlh]</td>
+												<td>$tampilkan[harga]</td>
+												
                 	                        </tr>";
-									$no++;
+									
 									}
+									
 									$tampil2 = mysql_query("SELECT * FROM transactions");
 								$jmldata = mysql_num_rows($tampil2);
 								$jmlhal  = ceil($jmldata/$batas);

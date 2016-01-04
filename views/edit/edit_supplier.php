@@ -39,6 +39,7 @@ if(isset($_POST['save']))
 	mysql_query("UPDATE suppliers SET nama_supplier ='$suppname_save', email ='$email_save',
 		 no_hp ='$nohp_save', alamat ='$address_save', kota ='$city_save', provinsi ='$prov_save' WHERE id_supplier = '$id'")
 				or die(mysql_error()); 
+
 	echo "Saved!";
 	 
 }

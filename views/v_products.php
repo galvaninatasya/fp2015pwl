@@ -12,8 +12,8 @@
                             <th>IMAGE</th>
                             <th>STOCK</th>
 							<th>COMPOSITION</th>
-							<th>INDICATION<th>
-                            <th>ACTION</th>
+							<th>INDICATION</th>
+							<th>ACTION</th>
                         </tr> 
 
 <?php
@@ -46,7 +46,7 @@ if ($find_db) {
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
 									{
-								   
+								$id = $tampilkan['id_produk'];
 								echo"<tr>
 										<td>$no</td>
 										<td>$tampilkan[id_produk]</td>
@@ -57,9 +57,9 @@ if ($find_db) {
 										<td>$tampilkan[komposisi]</td>
 										<td>$tampilkan[keterangan]</td>
 										<td><a href='edit_product.php?id_produk=$id'>
-													<span class='label label-success'>Edit</a>
-											<a href='del_product.php?id_produk=$id'>
-													<span class='label label-danger'>Del</span><a>
+											<span class='label label-success'>Edit</a>
+											<a href='del_prod.php?id_produk=$id'>
+											<span class='label label-danger'>Del</a>
 										</td>
 									</tr>";
 									$no++;

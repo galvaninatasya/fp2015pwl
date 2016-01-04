@@ -10,7 +10,7 @@
 									<th>PHONE NUMBER</th>
                                     <th>TELP. NUMBER</th>
 									<th>PASSWORD</th>
-                                    
+                                    <th>ACTION</th>
                                 </tr>
 								
 <?php
@@ -42,7 +42,7 @@ if ($find_db) {
 									$query = "select * from customers order by username limit $posisi,$batas";
 									$hasil = mysql_query($query);
 									while($tampilkan = mysql_fetch_array($hasil))
-									{
+									{$id = $tampilkan['username'];
 								        echo"<tr>
 												<td>$no</td>
 												<td>$tampilkan[username]</td>
@@ -51,7 +51,10 @@ if ($find_db) {
 												<td>$tampilkan[no_handphone]</td>
 												<td>$tampilkan[no_telp]</td>
 												<td>$tampilkan[pwd_pelanggan]</td>
-												
+												<td>
+													<a href='del_cons.php?username=$id'>
+													<span class='label label-danger'>Del</span><a>
+												</td>
                 	                        </tr>";
 											$no++;
 											}
